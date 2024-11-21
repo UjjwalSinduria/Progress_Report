@@ -21,4 +21,4 @@
 
 ### Thursday 21-11-2024
 - [x] Amazon EBS Snapshots, Amazon S3, S3 Storage Classes, Amazon S3 bucket policies, Amazon S3 Encryption
-- [x] 
+- [x] Metrics, Amazon S3 Matrics, Amazon RDS Matrics, Amazon ec2 Matrics
