@@ -13,4 +13,8 @@
 
 
 ### Wednesday 20-11-2024
-- [x] 
+- [x] Storage, File Storage, Block Storage, Object Storage
+- [x] Amazon ec2 Instance Store, Amazon EBS 
+- [x] Understanding the Structure of IPs, Addressing, IPV4, IPV4 classes, IPV6, Public IP, Private IP
+- [x] Task1: Created first Amazon Ec2 instance using Management Console
+ 
