@@ -18,7 +18,7 @@
 - [x] Understanding the Structure of IPs, Addressing, IPV4, IPV4 classes, IPV6, Public IP, Private IP
 - [x] Task1: Created first Amazon Ec2 instance using Management Console
  
-- -
+--
 
 ### Thursday 21-11-2024
 - [x] Amazon EBS Snapshots, Amazon S3, S3 Storage Classes, Amazon S3 bucket policies, Amazon S3 Encryption
