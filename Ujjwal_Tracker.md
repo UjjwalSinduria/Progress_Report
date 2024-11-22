@@ -24,3 +24,7 @@
 - [x] Monitoring, Amazon S3 Matrics, Amazon RDS Matrics, Amazon ec2 Matrics
 - [x] Amazon CloudWatch, CloudWatch DashBoards, Amazon CloudWatch Logs, CloudWatch Alarms
 - [x] Ok State, Alarm State, Insufficient Data
+
+
+### Friday 22-11-2024
+- [x] 
