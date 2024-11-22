@@ -27,4 +27,4 @@
 
 
 ### Friday 22-11-2024
-- [x] 
+- [x] Traffic Routing, Elastic Load Balancing, Amazon ec2 Auto Scaling, 
