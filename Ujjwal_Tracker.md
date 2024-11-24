@@ -28,6 +28,6 @@
 
 ### Friday 22-11-2024
 - [x] Traffic Routing, Elastic Load Balancing, Application Load Balancer, Network Load Balancer, Gateway Load Balancer 
-- [x] 
+- [x] Amazon ec2 Auto Scaling, Traditional Scaling VS Auto Scaling, ELB with Amazon ec2 Auto Scaling
 - [x] Task2: Created an ec2 instance and hosted it on apache server 
 - [x] Task2: Created 2 ec2 instance and observed the changes using bootstrap code for apache 
