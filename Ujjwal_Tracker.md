@@ -33,3 +33,6 @@
 - [x] ec2 Autoscaling Policies (Dynamic Policies, Predicitive polices, Scheduled Policies), How these policies works
 - [x] Task2: Created an ec2 instance and hosted it on apache server 
 - [x] Task2: Created 2 ec2 instance and observed the changes using bootstrap code for apache 
+
+
+### Monday 25-11-2024
