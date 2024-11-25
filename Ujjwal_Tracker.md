@@ -16,7 +16,7 @@
 - [x] Storage, File Storage, Block Storage, Object Storage
 - [x] Amazon EFS, Amazon ec2 Instance Store, Amazon EBS, EBS Volume types(SSDs, HDDs) 
 - [x] Understanding the Structure of IPs, Addressing, IPV4, IPV4 classes, IPV6, Public IP, Private IP
-- [x] Task1: Created first Amazon Ec2 instance using Management Console
+- [x] ***Task1: Created first Amazon Ec2 instance using Management Console
  
 
 ### Thursday 21-11-2024
@@ -31,8 +31,8 @@
 - [x] Amazon ec2 Auto Scaling, Traditional Scaling VS Auto Scaling, Automatic Scaling, Scheduled Scaling, Predicitive Scaling 
 - [x] ELB with Amazon ec2 Auto Scaling, Amazon ec2 Autoscaling groups (Minimun, Desired and Maximum Capicity)
 - [x] ec2 Autoscaling Policies (Dynamic Policies, Predicitive polices, Scheduled Policies), How these policies works
-- [x] Task2: Created an ec2 instance and hosted it on apache server 
-- [x] Task2: Created 2 ec2 instance and observed the changes using bootstrap code for apache 
+- [x] ***Task2: Created an ec2 instance and hosted it on apache server 
+- [x] ***Task2: Created 2 ec2 instance and observed the changes using bootstrap code for apache 
 
 
 ### Monday 25-11-2024
