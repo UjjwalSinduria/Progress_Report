@@ -38,3 +38,4 @@
 ### Monday 25-11-2024
 - [x] ***Task4: Created a Load Balancer for ec2 and distributed it amaong them and test the browser
 - [x] ***Task5: Created a AutoScaling group for ec2 instace.
+- [x] ***Task6: Basics linux Commands
