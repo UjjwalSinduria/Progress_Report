@@ -29,7 +29,7 @@
 ### Friday 22-11-2024
 - [x] Traffic Routing, Elastic Load Balancing, Application Load Balancer, Network Load Balancer, Gateway Load Balancer 
 - [x] Amazon ec2 Auto Scaling, Traditional Scaling VS Auto Scaling, Automatic Scaling, Scheduled Scaling, Predicitive Scaling 
-- [x] ELB with Amazon ec2 Auto Scaling, Amazon ec2 Autoscaling groups (Minimun, Desired, Maximum Capicity)
+- [x] ELB with Amazon ec2 Auto Scaling, Amazon ec2 Autoscaling groups (Minimun, Desired and Maximum Capicity)
 - [x] ec2 Autoscaling Policies (Dynamic Policies, Predicitive polices, Scheduled Policies), How these policies works
 - [x] Task2: Created an ec2 instance and hosted it on apache server 
 - [x] Task2: Created 2 ec2 instance and observed the changes using bootstrap code for apache 
