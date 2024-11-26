@@ -43,4 +43,5 @@
 
 
 ### Tuesday 26-11-2024
-- [x]
+- [x] ***Task7: Create an IAM role with access to S3 services, use AWS CLI from instance to list bucket in s3
+- [x] ***Task8:
