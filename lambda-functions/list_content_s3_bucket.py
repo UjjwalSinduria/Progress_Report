@@ -6,6 +6,10 @@ def lambda_handler(event, context):
         response = s3.list_objects_v2(Bucket = s3.list_buckets()['Buckets'][0]['Name'])
         for content in response["Contents"]:
             print(content['Key'])
+        return {
+            'statusCode':200,
+            'body':'Response found'
+        }
     except:
         return{
             'statusCode':500,
