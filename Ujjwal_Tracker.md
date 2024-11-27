@@ -53,3 +53,4 @@
 - [x] \*\*\*Task8: continued with the task8(able to access private instance, but with some unresolved doubts(why private instance getting the internet access without NAT gateway))
 - [x] AWS lambda :
 - [x] \*\*\*Task9: List all S3 buckets using AWS Lambda.
+- [x] \*\*\*Task10: List the contents of a S3 bucket. (Any bucket)
