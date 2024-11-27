@@ -45,4 +45,4 @@
 ### Tuesday 26-11-2024
 - [x] ***Task7: Create an IAM role with access to S3 services, use AWS CLI from instance to list bucket in s3
 - [x] ***Task8: Create VPC with custom IGW and created public and private subnets with different public and private route tables
-- [x] ***Task8: 
+- [x] ***Task8: Create VPC endpoint to S3
