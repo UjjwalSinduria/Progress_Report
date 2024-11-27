@@ -50,6 +50,6 @@
 
 ### Wednesday 27-11-2024
 
-- [x] \*\*\*Task8: continued with the task8(able to access private instance, but with some unresolved doubts(why private instance getting the internet access with NAT gateway))
+- [x] \*\*\*Task8: continued with the task8(able to access private instance, but with some unresolved doubts(why private instance getting the internet access without NAT gateway))
 - [x] AWS lambda :
 - [x] \*\*\*Task9: List all S3 buckets using AWS Lambda.
