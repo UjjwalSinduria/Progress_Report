@@ -59,5 +59,6 @@
 
 ### Thursday 28-11-2024
 - [x] \*\*\*Task11: Get the names of each object of the S3 bucket and put in a file in a csv format and put it in a bucket
+- [x] \*\*\*Task12: Get the list of all Security Groups inside all the VPCs. Take a VPC that has maximum number SGs.
 
 
