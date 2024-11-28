@@ -54,3 +54,10 @@
 - [x] AWS lambda :
 - [x] \*\*\*Task9: List all S3 buckets using AWS Lambda.
 - [x] \*\*\*Task10: List the contents of a S3 bucket. (Any bucket)
+- [x] \*\*\*Task11: Get the names of each object of the S3 bucket and put in a file in a csv format and put it in a bucket(Not completed)
+
+
+### Thursday 28-11-2024
+- [x] \*\*\*Task11: Get the names of each object of the S3 bucket and put in a file in a csv format and put it in a bucket
+
+
