@@ -8,5 +8,5 @@ def lambda_handler(event,context):
     s3_client.put_object(
         Key=s3_path_001,
         Bucket=bucket_name,
-        Body=(json.dumpsS(list_file))
+        Body=(json.dumps(list_file))
     )
