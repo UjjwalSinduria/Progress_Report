@@ -6,8 +6,12 @@ def lambda_handler(event,context):
     vpcs_id = []
     for res in response['Vpcs']:
         vpcs_id.append(res['VpcId'])
-    print(maximum_sgs(vpcs_id))
+    max_size, max_sg_vpc = maximum_sgs(vpcs_id)
 
+    return {
+        "MaxSGCount": max_size,
+        "VpcWithMaxSG": max_sg_vpc
+    }
 def maximum_sgs(vpcs_id):
     max_size = 0
     max_sg_vpc=""
