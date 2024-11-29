@@ -68,6 +68,7 @@
 - [x] \*\*\*Task14: Utilise Event bridge as a trigger for the previous lambda functions.
 - [x] \*\*\*Task15: Create a bucket and 2 folders.
 - [x] \*\*\*Task16: Upload files to these folders using CLI and console.
+- [x] \*\*\*Task17: Configure the bucket to host static website and host sample html page.
 
 
 
