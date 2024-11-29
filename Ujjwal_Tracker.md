@@ -64,8 +64,9 @@
 - [x] What is EventBridge, EventBuses, Pipes
 
 
-### Thursday 28-11-2024
+### Friday 29-11-2024
 - [x] \*\*\*Task14: Utilise Event bridge as a trigger for the previous lambda functions.
+- [x] \*\*\*Task15: 
 
 
 
