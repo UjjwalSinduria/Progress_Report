@@ -67,6 +67,7 @@
 ### Friday 29-11-2024
 - [x] \*\*\*Task14: Utilise Event bridge as a trigger for the previous lambda functions.
 - [x] \*\*\*Task15: Create a bucket and 2 folders.
+- [x] \*\*\*Task16: Upload files to these folders using CLI and console.
 
 
 
