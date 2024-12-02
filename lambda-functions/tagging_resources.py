@@ -75,3 +75,28 @@ def list_vpcs():
     for value in vpcs_response["Vpcs"]:
         vpcs_id_list.append(value["VpcId"])
     return vpcs_id_list
+
+
+
+
+# import json
+# import boto3
+# s3_client = boto3.client('s3')
+
+# s3 = boto3.resource('s3')
+# def lambda_handler(event, context):
+#     bucket_tagging = s3.BucketTagging('ujjwal-testing-tag-bucket')
+#     response1=s3_client.get_bucket_tagging(
+#         Bucket='ujjwal-testing-tag-bucket')['TagSet']   #Directly getting the lis of available tags
+#     print(response1)
+
+#     response1.append({  #Appending new tag in existing tag list
+#         'Key': 'Ujjwal-Check',
+#         'Value': 'Ujjwal-tag-s3-testing'
+#     })
+
+#     response = bucket_tagging.put( #Updating the tags of the s3 bucket
+#     Tagging={
+#         'TagSet': response1
+#     })
+#     print(response)
