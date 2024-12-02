@@ -56,21 +56,23 @@
 - [x] \*\*\*Task10: List the contents of a S3 bucket. (Any bucket)
 - [x] \*\*\*Task11: Get the names of each object of the S3 bucket and put in a file in a csv format and put it in a bucket(Not completed)
 
-
 ### Thursday 28-11-2024
+
 - [x] \*\*\*Task11: Get the names of each object of the S3 bucket and put in a file in a csv format and put it in a bucket
 - [x] \*\*\*Task12: Get the list of all Security Groups inside all the VPCs. Take a VPC that has maximum number SGs.
 - [x] \*\*\*Task13: Put the names of the SGs that have any port open to 0.0.0.0 in a file.
 - [x] What is EventBridge, EventBuses, Pipes
 
-
 ### Friday 29-11-2024
+
 - [x] \*\*\*Task14: Utilise Event bridge as a trigger for the previous lambda functions.
 - [x] \*\*\*Task15: Create a bucket and 2 folders.
 - [x] \*\*\*Task16: Upload files to these folders using CLI and console.
 - [x] \*\*\*Task17: Configure the bucket to host static website and host sample html page.
 - [x] \*\*\*Task18: Read about different tiers of S3.
-- [x] \*\*\*Task19: Read about bucket policies
+- [x] \*\*\*Task19: Read about bucket policies.
 
 
+### Monday 02-12-2024
+- [x] \*\*\*Task20: Spin up an EC2 Instance with Security Group. EC2 instance should have a Tag with you name
 
