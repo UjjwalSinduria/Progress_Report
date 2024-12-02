@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Ujjwal EC2 with SG
+
+Resources:
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allowing SSH and HTTP
+      GroupName: Ujjwal-sg-task
+      
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 18.61.99.88/32
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: Ujjwal-sg-task
+      VpcId: vpc-0dc54670
+  # Ec2 istnace
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      SubnetId: subnet-010d240f
+      IamInstanceProfile : SSM_FULL
+      ImageId: ami-0453ec754f44f9a4a
+      InstanceType: t2.micro
+      SecurityGroupIds: 
+        - !Ref MySecurityGroup
+      Tags:
+        - Key: Name
+          Value: Ujjwal-ec2-task
+
+
+
+
+# Resources:
+   
+#   # Security grop
+#   MySecurityGroup:
+#     Type: AWS::EC2::SecurityGroup
+#     Properties:
+#       GroupDescription: Allow SSH and HTTP
+#       GroupName: Raji-SG-task
+#       SecurityGroupIngress: 
+#         - CidrIp : 0.0.0.0/0
+#           IpProtocol : tcp
+#           FromPort : 22
+#           ToPort : 22
+#         - CidrIp : 0.0.0.0/0
+#           IpProtocol : tcp
+#           FromPort : 80
+#           ToPort : 80
+#       Tags: 
+#         - Key: Raji-sg
+#           Value: Raji-sg-tag
+#       VpcId: vpc-0dc54670
+
+#   # EC2
+#   MyEc2Instance:
+#     Type: AWS::EC2::Instance
+#     Properties:
+#       SubnetId: subnet-010d240f
+#       IamInstanceProfile : SSM_FULL
+#       ImageId : ami-01bc990364452ab3e
+#       InstanceType : t2.micro
+#       SecurityGroupIds : 
+#        - !GetAtt MySecurityGroup.GroupId
+#       Tags: 
+#         - Key: Raji-ec2
+#           Value: Raji-ec2-tag

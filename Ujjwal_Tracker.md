@@ -75,4 +75,9 @@
 
 ### Monday 02-12-2024
 - [x] \*\*\*Task20: Spin up an EC2 Instance with Security Group. EC2 instance should have a Tag with you name
-
+- [x] \*\*\*Task21: Tag resources Tag 5 resources: EC2, AWS Lambda ,S3 Bucket ,VPCs  
+    (Query: Can't find the perfect function to add new tag to the s3 bucket without deleting previous one
+    * put_bucket_tagging(It will delete previous one)
+    * new Approach: get_bucket_tagging(With the help of this retrieve old tags and append new tag into that tag list)
+      BucketTagging.put(With the help of this add all old+newTag into the bucket)
+    )
