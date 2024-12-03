@@ -85,5 +85,9 @@
 
 ### Tuesday 03-12-2024
 - [x] \*\*\*Task21(Continue): (Found another method, which can add new tags in multiple resources at once())(But it requires ARNs to perform the task )
-            (And to remove the tag from all the )
+- [x] \*\*\*Task22: Created a another lambda function to remove all the selected tags from all the given resources
+            
+            
+
+
 
