@@ -2,6 +2,25 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Ujjwal EC2 with SG
 
 Resources:
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allowing SSH and HTTP
+      GroupName: Ujjwal-sg-task
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 18.61.99.88/32
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: Ujjwal-sg-task
+      VpcId: vpc-0dc54670
+  # Ec2 instance
   MyEC2Instance:
     Type : "AWS::EC2::Instance"
     Properties:
@@ -9,7 +28,8 @@ Resources:
       IamInstanceProfile : SSM_FULL
       ImageId: ami-0453ec754f44f9a4a
       InstanceType: t2.micro
-      SecurityGroupIds: sg-0d883e3475c9352bc
+      SecurityGroupIds: 
+        - !Ref MySecurityGroup
       Tags:
         - Key: Name
           Value: Ujjwal-ec2-cloudWatch-Alarm
@@ -19,5 +39,5 @@ Resources:
     Properties:
       AlarmDescription: CPU alarm for my instance
       MetricName: CPUUtilization
-      
+
 
