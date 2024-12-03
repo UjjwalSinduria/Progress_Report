@@ -11,19 +11,10 @@ def lambda_handler(event, context):
     s3_arn_list = s3_arns_list() #Getting s3 arns list
     volume_ids = ec2_volume_list()
     if ec2_instances_list:
-        lambda_function_arns = list_lambda_functions()
-    
-        newlist = []
-    
-        for i in range(0,16):
-            newlist.append(lambda_function_arns[i])
-        
-        client.tag_resources(
-            ResourceARNList=newlist,
-            Tags={
-            'Ujjwal-test-1': 'ujjwal-lambda-tag123'
-            }
-        )
+        ec2_client.create_tags(
+        Resources=ec2_instances_list,
+        Tags=[{'Key': 'ujjwal', 'Value': 'ujjwal-ec2-tag'}]
+    )
         
     if vpc_ids_list:
         ec2_client.create_tags(

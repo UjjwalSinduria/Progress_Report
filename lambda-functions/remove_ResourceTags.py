@@ -7,7 +7,7 @@ client = boto3.client('resourcegroupstaggingapi')
 def lambda_handler(event, context):
     # Ec2 tag removing space
     ec2_instance_list = list_ec2_instance()
-    remove_ec2_tag(ec2_instance_list,[{'Key':'ujjwal','Value':'ujjwal-tag-ec2'}])
+    remove_ec2_tag(ec2_instance_list,[{'Key':'ujjwal'}])
 
     # removing vpc tags
     vpc_ids_list = list_vpcs()  # All VPC IDs available
