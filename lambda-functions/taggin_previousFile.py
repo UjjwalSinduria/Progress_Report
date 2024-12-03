@@ -6,24 +6,17 @@ lambda_client = boto3.client('lambda')
 client = boto3.client('resourcegroupstaggingapi')
 def lambda_handler(event, context):
     ec2_instances_list = list_ec2_instance()  # All EC2 instance ids available
+    s3_bucket_names = list_s3_bucksts()  # All S3 bucket names available
     lambda_function_arns = list_lambda_functions()  # All Lambda function ARNs available
     vpc_ids_list = list_vpcs()  # All VPC IDs available
     s3_arn_list = s3_arns_list() #Getting s3 arns list
-    volume_ids = ec2_volume_list()
+   
     if ec2_instances_list:
-        lambda_function_arns = list_lambda_functions()
-    
-        newlist = []
-    
-        for i in range(0,16):
-            newlist.append(lambda_function_arns[i])
-        
-        client.tag_resources(
-            ResourceARNList=newlist,
-            Tags={
-            'Ujjwal-test-1': 'ujjwal-lambda-tag123'
-            }
+        ec2_client.create_tags(
+            Resources=ec2_instances_list,
+            Tags=[{'Key': 'ujjwal', 'Value': 'ujjwal-tag-ec2'}]
         )
+        print("Tagged EC2 Instances successfully")
         
     if vpc_ids_list:
         ec2_client.create_tags(
@@ -33,38 +26,36 @@ def lambda_handler(event, context):
         print("Tagged VPCs successfully")
         
     if lambda_function_arns:
-        lambda_function_arns = list_lambda_functions()
-        print()
-        newlist = []
-        for i in range(0,16):
-            newlist.append(lambda_function_arns[i])
         client.tag_resources(
-            ResourceARNList=newlist,
+            ResourceARNList=lambda_function_arns,
             Tags={
-            'Ujjwal-test-1': 'ujjwal-lambda-tag123'
+            'Ujjwal': 'ujjwal-lambda-tag'
             }
         )
     
     if s3_arn_list:
-        newS3List = []
-        for val in range(0,16):
-            newS3List.append(s3_arn_list[val])
-
         client.tag_resources(
-                ResourceARNList=newS3List,
-                Tags={
-                'Ujjwal': 'ujjwal-s3-tag'
-                }
-            )
-        
-    if volume_ids:
-        ec2_client.create_tags(
-            Resources=volume_ids,
-            Tags=[{'Key': 'ujjwal', 'Value': 'ujjwal-volume-tag'}]
+            ResourceARNList=s3_arn_list,
+            Tags={
+            'Ujjwal': 'ujjwal-s3-tag'
+            }
         )
 
-# def list_ec2_volumes():
-#     response = ec2_client.
+
+
+
+
+    
+    # if lambda_function_arns:
+    #     for arn in lambda_function_arns:
+    #         lambda_client.add_tags(
+    #             Resource=arn,
+    #             Tags={'ujjwal': 'ujjwal-tag-lambda'}
+    #         )
+    #     print("Tagged Lambda Functions successfully")
+
+   
+    
     
 def list_ec2_instance():
     responses = ec2_client.describe_instances()
@@ -75,7 +66,13 @@ def list_ec2_instance():
     # print(instances)
     return instances
 
-
+def list_s3_bucksts():
+    s3_response = s3_client.list_buckets()
+    s3_list = []
+    for lists in s3_response["Buckets"]:
+        s3_list.append(lists["Name"])
+        
+    return s3_list
 
 def list_lambda_functions():
     lambda_response = lambda_client.list_functions()
@@ -99,11 +96,29 @@ def s3_arns_list():
     return bucket_arns_list
 
 
+# def remove_ec2
 
-def ec2_volume_list():
-    response = ec2_client.describe_volumes()
-    volume_ids = []
-    for volume in response['Volumes']:
-        volume_ids.append(volume['VolumeId'])
-    # print(volume_ids)
-    return volume_ids
+
+
+
+# import json
+# import boto3
+# s3_client = boto3.client('s3')
+
+# s3 = boto3.resource('s3')
+# def lambda_handler(event, context):
+#     bucket_tagging = s3.BucketTagging('ujjwal-testing-tag-bucket')
+#     response1=s3_client.get_bucket_tagging(
+#         Bucket='ujjwal-testing-tag-bucket')['TagSet']   #Directly getting the lis of available tags
+#     print(response1)
+
+#     response1.append({  #Appending new tag in existing tag list
+#         'Key': 'Ujjwal-Check',
+#         'Value': 'Ujjwal-tag-s3-testing'
+#     })
+
+#     response = bucket_tagging.put( #Updating the tags of the s3 bucket
+#     Tagging={
+#         'TagSet': response1
+#     })
+#     print(response)
