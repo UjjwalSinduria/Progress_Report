@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Ujjwal EC2 with SG
+
+Resources:
+  MyEC2Instance:
+    Type : "AWS::EC2::Instance"
+    Properties:
+      SubnetId: subnet-010d240f
+      IamInstanceProfile : SSM_FULL
+      ImageId: ami-0453ec754f44f9a4a
+      InstanceType: t2.micro
+      SecurityGroupIds: sg-0d883e3475c9352bc
+      Tags:
+        - Key: Name
+          Value: Ujjwal-ec2-cloudWatch-Alarm
+  # CloudWatch alarm
+  CloudWatchAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: CPU alarm for my instance
+      MetricName: CPUUtilization
+      
+
