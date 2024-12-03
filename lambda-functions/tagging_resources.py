@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     lambda_function_arns = list_lambda_functions()  # All Lambda function ARNs available
     vpc_ids_list = list_vpcs()  # All VPC IDs available
     
-    # Tag EC2 instances
+   
     if ec2_instances_list:
         ec2_client.create_tags(
             Resources=ec2_instances_list,
@@ -28,7 +28,7 @@ def lambda_handler(event, context):
             )
         print("Tagged S3 Buckets successfully")
 
-    # Tag Lambda functions
+    
     if lambda_function_arns:
         for arn in lambda_function_arns:
             lambda_client.add_tags(
@@ -37,7 +37,7 @@ def lambda_handler(event, context):
             )
         print("Tagged Lambda Functions successfully")
 
-    # Tag VPCs
+   
     if vpc_ids_list:
         ec2_client.create_tags(
             Resources=vpc_ids_list,
@@ -75,6 +75,16 @@ def list_vpcs():
     for value in vpcs_response["Vpcs"]:
         vpcs_id_list.append(value["VpcId"])
     return vpcs_id_list
+
+
+def s3_arns_list():
+    response = s3_client.list_buckets()
+    bucket_name_list = [bucket['Name'] for bucket in response['Buckets']]
+    bucket_arns_list = [f"arn:aws:s3:::{bucket}" for bucket in bucket_name_list]
+    return bucket_arns_list
+
+
+# def remove_ec2
 
 
 
