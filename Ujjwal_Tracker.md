@@ -86,6 +86,14 @@
 ### Tuesday 03-12-2024
 - [x] \*\*\*Task21(Continue): (Found another method, which can add new tags in multiple resources at once())(But it requires ARNs to perform the task )
 - [x] \*\*\*Task22: Created a another lambda function to remove all the selected tags from all the given resources
+- [x] \*\*\*Task23: Create CloudWatch alarm for a EC2 instance, and create alarms on metrics:  
+    * CPU Utilization  
+    * Memory Usage Percentage  
+
+
+### Wednesday 04-12-2024
+- [x]
+
             
             
 
