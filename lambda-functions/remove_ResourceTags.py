@@ -5,15 +5,22 @@ s3_resource = boto3.resource('s3')
 lambda_client = boto3.client('lambda')
 client = boto3.client('resourcegroupstaggingapi')
 def lambda_handler(event, context):
+    
+    
     # Ec2 tag removing space
     ec2_instance_list = list_ec2_instance()
     remove_ec2_tag(ec2_instance_list,[{'Key':'ujjwal'}])
 
+    
+    
+    
     # removing vpc tags
     vpc_ids_list = list_vpcs()  # All VPC IDs available
     remove_vpc_tag(vpc_ids_list,[{'Key':'ujjwal','Value':'ujjwal-tag-vpc'}])
 
 
+    
+    
     # Lambda funtion tags removing space
     lambda_function_arns= list_lambda_functions()
     print(lambda_function_arns)
@@ -25,8 +32,6 @@ def lambda_handler(event, context):
         
     
     
-
-    
     # S3 remove tags
     s3_arn_list = s3_arns_list()
     newS3List = []
@@ -34,16 +39,29 @@ def lambda_handler(event, context):
         newS3List.append(s3_arn_list[val])
     remove_s3_tag(newS3List,'Ujjwal')
     
+    
+    
     #remove func call for volumes
     volume_ids = ec2_volume_list()
     remove_volume_tag(volume_ids,[{'Key':'ujjwal'}])
     
+    
+    
+    # Remove s3 tags
 def remove_s3_tag(s3_arn,key_value):
     client.untag_resources(
     ResourceARNList=s3_arn,
     TagKeys=[
         key_value,
     ])     
+    
+    
+# Remove volume
+def remove_volume_tag(volume_ids,key_value):
+    ec2_client.delete_tags(
+        Resources=volume_ids,
+        Tags=key_value
+        )
       
       
 # Remove vpc tags
@@ -116,9 +134,4 @@ def list_vpcs():
     return vpcs_id_list
 
 
-# Remove volume
-def remove_volume_tag(volume_ids,key_value):
-    ec2_client.delete_tags(
-        Resources=volume_ids,
-        Tags=key_value
-        )
+

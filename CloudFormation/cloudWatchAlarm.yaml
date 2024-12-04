@@ -1,7 +1,16 @@
+
+
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Ujjwal EC2 with SG
+Description: Ujjwal EC2 with SG and CloudWatch Alarms
 
 Resources:
+  # SNS Topic for CloudWatch Alarm Actions
+  UjjwalCloudWatchAlarmsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: ujjwal-CloudWatch-Alarms-Topic
+
+  # Security Group
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -18,26 +27,71 @@ Resources:
           CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: Ujjwal-sg-task
+          Value: Ujjwal-sg-task01
       VpcId: vpc-0dc54670
-  # Ec2 instance
+
+  # EC2 Instance
   MyEC2Instance:
-    Type : "AWS::EC2::Instance"
+    Type: "AWS::EC2::Instance"
     Properties:
       SubnetId: subnet-010d240f
-      IamInstanceProfile : SSM_FULL
+      IamInstanceProfile: SSM_FULL
       ImageId: ami-0453ec754f44f9a4a
       InstanceType: t2.micro
       SecurityGroupIds: 
         - !Ref MySecurityGroup
       Tags:
         - Key: Name
-          Value: Ujjwal-ec2-cloudWatch-Alarm
-  # CloudWatch alarm
+          Value: Ujjwal-ec2-instance-test1
+
+  # CloudWatch CPU Utilization Alarm
   CloudWatchAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
+      AlarmName: ujjwal-ec2-cpu-utilization
       AlarmDescription: CPU alarm for my instance
       MetricName: CPUUtilization
+      Namespace: EC2
+      Period: 300
+      Statistic: Average
+      Threshold: 15
+      ComparisonOperator: GreaterThanThreshold
+      EvaluationPeriods: 1
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref MyEC2Instance
+      AlarmActions:
+        - !Ref UjjwalCloudWatchAlarmsTopic
+      Tags:
+        - Key: Name
+          Value: ujjwal-cpu-utilization-alarm
+
+  # CloudWatch Memory Utilization Alarm
+  MemoryUtilizationAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: ujjwal-ec2-memory-utilization
+      AlarmDescription: Memory Usage Alarm for my EC2 instance
+      MetricName: mem_used_percent
+      Namespace: CWAgent
+      Period: 300
+      Threshold : 15
+      Statistic: Average
+      ComparisonOperator: GreaterThanThreshold
+      EvaluationPeriods: 1
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref MyEC2Instance
+      AlarmActions:
+        - !Ref UjjwalCloudWatchAlarmsTopic
+      Tags:
+        - Key: Name
+          Value: ujjwal-memory-utilization-alarm
+      
+
+
+      
+
+
 
 
