@@ -37,6 +37,7 @@ def lambda_handler(event, context):
         )
     
     if s3_arn_list:
+        
         newS3List = []
         for val in range(0,16):
             newS3List.append(s3_arn_list[val])
