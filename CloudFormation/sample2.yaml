@@ -1,0 +1,92 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  APIName:
+    Type: String
+    Default: API_api_lambda_tag_untag_resource
+
+Resources:
+  # IAM Role for Lambda
+  ApiGatewayLambdaInvokeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: Ujjwal-Api-Gate-Lambda-Role  
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - arn:aws:iam::570646387953:policy/ujjwal-tagging-resources
+
+  # Lambda Function
+  MyLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: UjjwalTagUntagLambda
+      Role: !GetAtt ApiGatewayLambdaInvokeRole.Arn
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.9
+      Code:
+        S3Bucket: ujjwal-api-gateway-lambda-function
+        S3Key: tag_untag_api_gateWay.zip
+      Timeout: 60
+      Tags:
+        - Key: Name
+          Value: Ujjwal-Tag-Untag-Resources
+
+  # API Gateway Rest API
+  MyAPIGatewayRestAPI:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: !Ref APIName
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+
+  # API Gateway Resource
+  MyAPIGateWayResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref MyAPIGatewayRestAPI
+      ParentId: !GetAtt MyAPIGatewayRestAPI.RootResourceId
+      PathPart: create
+
+  # API Gateway Method
+  MyAPIGateWayMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref MyAPIGatewayRestAPI
+      ResourceId: !Ref MyAPIGateWayResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri:
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+
+  # Deployment
+  MyAPIDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn: MyAPIGateWayMethod
+    Properties:
+      RestApiId: !Ref MyAPIGatewayRestAPI
+      StageName: v1
+
+  # Lambda Permission for API Gateway
+  MyAPIGateWayPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !GetAtt MyLambdaFunction.Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${MyAPIGatewayRestAPI}/*/POST/create
+
+Outputs:
+  ApiUrl:
+    Description: "API Gateway Endpoint URL"
+    Value: !Sub "https://${MyAPIGatewayRestAPI}.execute-api.${AWS::Region}.amazonaws.com/v1/create"
