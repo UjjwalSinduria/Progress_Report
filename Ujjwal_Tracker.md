@@ -93,12 +93,12 @@
 
 ### Wednesday 04-12-2024
 - [x] \*\*\*Task24: With the help of cft i have created sg, ec2, CpuUtilization Alarm, Memory Usage Percentage
-- [x] \*\*\*Task25: API Gateway Trigger for your AWS Lambda Function for the Lambda function for task 21&22. Then, based on the POST payload, the Lambda function will   tag the resource. For example, if the payload has EC2, then EC2 will be tagged. Similarly, if the request is to remove the Tag, then remove the tag for the appropriate resource/service. (Now, any test case or scenario that should be considered, should be handled.) 
+- [x] \*\*\*Task25: API Gateway Trigger for your AWS Lambda Function for the Lambda function for task 21&22. Then, based on the POST payload, the Lambda function will  tag the resource. For example, if the payload has EC2, then EC2 will be tagged. Similarly, if the request is to remove the Tag, then remove the tag for the appropriate resource/service. (Now, any test case or scenario that should be considered, should be handled.) 
 
 
 ### Thursday 05-12-2024
 - [x] \*\*\*Task26: CloudFormation template for task(24 and 25).
-
+  
  
 
             

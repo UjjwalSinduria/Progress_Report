@@ -1,0 +1,124 @@
+
+Parameters:
+  APIName:
+    Type: String
+    Default: API_api-lambda-tag-untag-resource
+Resources:
+# IAM ROLE
+  ApiGatewayLambdaInvokeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: Ujjwal-Api-gate-lambda-role  
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - apigateway.amazonaws.com
+                - lambda.amazonaws.com
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - arn:aws:iam::570646387953:policy/ujjwal-tagging-resources
+        
+
+# LAMBDA FUNCTION 
+  MyLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Role: !GetAtt ApiGatewayLambdaInvokeRole.Arn
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.13
+      Code:
+        S3Bucket: ujjwal-api-gateway-lambda-function
+        S3Key: tag_untag_api_gateWay.zip
+      Timeout: 60
+      Tags:
+        - Key: Name
+          Value: ujjwal-tag-untag-resources
+# ApiGatewayRestApi
+  MyAPIGatewayRestAPI:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: ujjwal-rest-api-gatway
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+    DependsOn:
+      - MyLambdaFunction
+       
+# APIGatewayResource
+  MyAPIGateWayResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: 
+        Ref: MyAPIGatewayRestAPI
+      ParentId: !GetAtt MyAPIGatewayRestAPI.RootResourceId
+      PathPart: create
+
+# APIGateWayMethod
+  MyAPIGateWayMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: 
+        Ref: MyAPIGatewayRestAPI
+      ResourceId:
+        Ref: MyAPIGateWayResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS
+        IntegrationHttpMethod: POST
+        Uri: 
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+      MethodResponses:
+        - StatusCode: 200
+          # !Sub
+          # - >- 
+          #   arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+# APIGateWayDeployment
+  MyAPIDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+      - MyAPIGateWayMethod # Ensure deployment waits for the method
+    Properties:
+      RestApiId: 
+        Ref: MyAPIGatewayRestAPI
+      
+
+  ApiGatewayStage:
+    Type: AWS::ApiGateway::Stage
+    Properties:
+      DeploymentId: !Ref MyAPIDeployment  # Referencing the deployment ID
+      RestApiId: !Ref MyAPIGatewayRestAPI  # Reference the API Gateway
+      StageName: V1  # Stage name (could be v1, v2, etc.)
+      Description: Lambda API Stage v2  # Description for the stage
+
+#ApiGateWayPermissions
+  MyAPIGateWayPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !GetAtt MyLambdaFunction.Arn
+      Principal: apigateway.amazonaws.com
+# outputs
+Outputs:
+  ApiUrl:
+    Description: "Ujjwal API Gateway URL"
+    Value: !Sub "https://${MyAPIGatewayRestAPI}.execute-api.${AWS::Region}.amazonaws.com/V1"
+
+
+
+
+
+
+      
+
+
+
+      
+
+
+
+
+    

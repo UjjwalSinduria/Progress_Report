@@ -1,0 +1,122 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Rajeshwari API Gateway
+ 
+Resources:
+ 
+  MyLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess    
+        - arn:aws:iam::aws:policy/AmazonEC2FullAccess        
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess          
+        - arn:aws:iam::aws:policy/AmazonVPCFullAccess        
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess        
+        - arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess  
+      Policies:
+        - PolicyName: LambdaBasicExecution
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: arn:aws:logs:*:*:*
+        - PolicyName: AWSLambdaBasicExecutionRole
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: '*'
+ 
+  MyLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Role: !GetAtt MyLambdaRole.Arn
+      Handler: api_gateway.lambda_handler
+      Runtime: python3.12
+      Code:
+        S3Bucket: raji-lambda-task-s3
+        S3Key: Raji-Task1.zip
+ 
+  MyRestApiGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: Raji-Api-Gateway
+ 
+  MyResource:
+    Type: 'AWS::ApiGateway::Resource'
+    Properties:
+      RestApiId:
+        Ref: MyRestApiGateway
+      ParentId: !GetAtt MyRestApiGateway.RootResourceId
+      PathPart: create
+ 
+  MyPostMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId:
+        Ref: MyRestApiGateway
+      ResourceId:
+        Ref: MyResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS
+        Uri:
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+        PassthroughBehavior: WHEN_NO_TEMPLATES
+        IntegrationResponses:
+          - StatusCode: '200'
+            ResponseTemplates:
+              application/json: ''
+      MethodResponses:
+        - StatusCode: '200'
+          ResponseModels:
+            application/json: 'Empty'
+ 
+ 
+  ApiGatewayInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Ref: MyLambdaFunction
+      Principal: apigateway.amazonaws.com
+ 
+  ApiGatewayStage:
+    Type: AWS::ApiGateway::Stage
+    Properties:
+      DeploymentId: !Ref Deployment
+      RestApiId: !Ref MyRestApiGateway
+      StageName: 'v2'
+      Description: 'Lambda API Stage v2'
+  
+ 
+  Deployment:
+    Type: 'AWS::ApiGateway::Deployment'
+    DependsOn: MyPostMethod
+    Properties:
+      RestApiId:
+        Ref: MyRestApiGateway
+      Description: Raji Rest API deployment
+ 
+Outputs:
+  ApiUrl:
+    Description: "API Gateway URL"
+    Value: !Sub "https://${MyRestApiGateway}.execute-api.${AWS::Region}.amazonaws.com/v2"
+ 
+ 
+ 
