@@ -41,4 +41,9 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     - [x] **Setting up main route table**
         * When a vpc is created its also creates a route table know as "main table", but we want our public route table to server as main table.
         * ![alt text](image-3.png)
+    - [x] **Creating NAT Gateway**
+        * A NAT(Network Address Translation) gateway used to allow instances from the private subnets to connect resources from outside of the vpc and the internet.
+        * **Note** : The NAT Gateway itself resides in a public subnet, It has na elastic IP address, which help it to route traffic to and out from the intenet.
+        * ![alt text](image-4.png)
+
 
