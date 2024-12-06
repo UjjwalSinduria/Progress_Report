@@ -1,1 +1,1 @@
-*** Amazon VPC 3 Tier Architecture ***
+**Amazon VPC 3 Tier Architecture**
