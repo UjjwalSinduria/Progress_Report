@@ -18,8 +18,10 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         it into 3 layers, each three layers are independent of each other and does perform different task to each other.
     * If an Az does down for some reason, the application has the ability to automatically scale resources to another AZ.
 
-- [x] **3 Layers or 3 tier** Each tier has its own security gropups that only allows the inbound/outbound traffic needed to perform       specific tasks.
-
+- [x] **3 Layers or 3 tier** (Each tier has its own security gropups that only allows the inbound/outbound traffic needed to perform      specific tasks.)
+    * **Web/Presentation Tier:-** It basically contains the user facing elements of the application, such as web servers and the interface a/frontend of the application.
+    * **Application Tier:-** It contains the backend and application source code which is needed to process data and run the functions.
+    * **Data Tier:-** It contains and manages the application data.(Basically where the databases are stored)
 
 
 
