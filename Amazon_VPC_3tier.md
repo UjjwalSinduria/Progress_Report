@@ -18,6 +18,8 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         it into 3 layers, each three layers are independent of each other and does perform different task to each other.
     * If an Az does down for some reason, the application has the ability to automatically scale resources to another AZ.
 
+- [x] **3 Layers or 3 tier** Each tier has its own security gropups that only allows the inbound/outbound traffic needed to perform       specific tasks.
+
 
 
 
