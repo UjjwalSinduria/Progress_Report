@@ -7,7 +7,7 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
 - [x] Amazon vpc(virtual private cloud) 3-tier architecture is a blueprint pattern that divides application components into three layers
     , each and ever layer is hosted in a separate subnet with in a vpc
 
-- [x] When building a cloud based application, architecture is as important as application
+- [x] When building a cloud based application, architecture is as important as application.
       Architecture in the sence how much our application is scalabe, how its available and how much secure it is.
     * Scalability
     * Availability
@@ -33,3 +33,7 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * 1 Private route table that will connect the Application Tier private subnets and NAT gateway  
     * ![alt text](image-1.png)
 
+- [x] **Building the base architecture**
+    * Using VPc console, created the vpc(ujjwa-webApp) 
+    * To increase the availabilty of our application, we are using two AZs, two subnets, four private subnets
+    * ![alt text](image-2.png)
