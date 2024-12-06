@@ -57,7 +57,16 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         **Now the foundation is complete**
 
 - [x] **Tier 1:Web Tier(Frontend):**
-    
+    * Web Tier(Presentation Tier) is the evnironment where our application will be delivered for users to interact with.
+    * This is where we will launch our web servers that will host the frontend for our application.
+    * In this tier We are going to built this:
+        * **Web Server Launch template**: is used to define what kind of EC2 instance will be in our application. 
+        * **Auto Scaling Group(ASG)**: That will dynamically scale up or not our EC2 instances according to the demand.
+        * **Application Load Balancer(ALB)**: It will guide traffic to its proper targets. 
+          
+
+
+
 
 
 
