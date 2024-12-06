@@ -39,4 +39,6 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * ![alt text](image-2.png)
     * We need to enable "auto assign public IPV4 address" for Both the public subnets so that its resources can be accessible via internt.
     - [x] **Setting up main route table**
-    
+        * When a vpc is created its also creates a route table know as "main table", but we want our public route table to server as main table.
+        * ![alt text](image-3.png)
+
