@@ -45,5 +45,20 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         * A NAT(Network Address Translation) gateway used to allow instances from the private subnets to connect resources from outside of the vpc and the internet.
         * **Note** : The NAT Gateway itself resides in a public subnet, It has na elastic IP address, which help it to route traffic to and out from the intenet.
         * ![alt text](image-4.png)
+    - [x] **Private Route Tables**
+        * By default route table is created for each private subnets by default, in our case its 4.
+        * But for Application tier subnets we need only one, so we are taking one private route table and going to associate it with
+            all 4 private subnets.
+        * ![alt text](image-5.png)
+
+    - [x] **Have to add a new route to our NAT Gateway in our private route tale**
+        * ![alt text](image-6.png)
+
+        **Now the foundation is complete**
+
+- [x] **Tier 1:Web Tier(Frontend):**
+    
+
+
 
 
