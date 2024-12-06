@@ -37,3 +37,6 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * Using VPc console, created the vpc(ujjwa-webApp) 
     * To increase the availabilty of our application, we are using two AZs, two subnets, four private subnets
     * ![alt text](image-2.png)
+    * We need to enable "auto assign public IPV4 address" for Both the public subnets so that its resources can be accessible via internt.
+    - [x] **Setting up main route table**
+    
