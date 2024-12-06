@@ -98,7 +98,7 @@
 
 ### Thursday 05-12-2024
 - [x] **Task26**: CloudFormation template for task(24 and 25).(Query: Everthing is working properly but one extra directory is created)
-- [x] **Task27: VPC Three tier architecture
+- [x] **Task27**: VPC Three tier architecture
     * Internet Gateway,Virtual Private Gateway, Route Tables, Subnets
 
 ### Thursday 05-12-2024
