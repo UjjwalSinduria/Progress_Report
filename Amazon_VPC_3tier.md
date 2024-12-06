@@ -63,6 +63,19 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         * **Web Server Launch template**: is used to define what kind of EC2 instance will be in our application. 
         * **Auto Scaling Group(ASG)**: That will dynamically scale up or not our EC2 instances according to the demand.
         * **Application Load Balancer(ALB)**: It will guide traffic to its proper targets. 
+        * ![alt text](image-7.png)
+    * Create a web server launch template(This template will help our ASG to dynamically launch EC2 instances)
+    * Create an Auto Scaling Group
+        * ![alt text](image-8.png)
+        * we have set Desired Capicity:2, Minimun Capicity: 2 and Maximum Capicity: 5
+    * Create Application Load Balancer(ALB)
+        * It will distribut the incoming HTTP traffic to the target EC2.
+        * It will be internet-facing, so it can listen for both http and https requests.
+        * ![alt text](image-9.png)
+        * ![alt text](image-10.png)
+        
+    * Everthing is fine till now, out two ec2 instances is launched and running properly
+
           
 
 
