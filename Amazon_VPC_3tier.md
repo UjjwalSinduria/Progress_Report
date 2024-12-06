@@ -19,7 +19,17 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * If an Az does down for some reason, the application has the ability to automatically scale resources to another AZ.
 
 - [x] **3 Layers or 3 tier** (Each tier has its own security gropups that only allows the inbound/outbound traffic needed to perform      specific tasks.)
-    * **Web/Presentation Tier:-** It basically contains the user facing elements of the application, such as web servers and the interface a/frontend of the application.
+    * **Web/Presentation Tier:-** It basically contains the user facing elements of the application, such as web servers and the interface/frontend of the application.
     * **Application Tier:-** It contains the backend and application source code which is needed to process data and run the functions.
     * **Data Tier:-** It contains and manages the application data.(Basically where the databases are stored)
     * ![alt text](image.png)
+
+- [x] Creating the base environment upon which our 3 tier application architecture will be built.
+    * A VPC
+    * 2 Public subnets in two differnet AZs(Web tier)
+    * 2 Private subnets in two differnet AZs(Application tier)
+    * 2 Private subnets in two differnet AZs(Database tier)
+    * 1 Public route table that connects the public subnets to an internet gateway.
+    * 1 Private route table that will connect the Application Tier private subnets and NAT gateway  
+    * ![alt text](image-1.png)
+
