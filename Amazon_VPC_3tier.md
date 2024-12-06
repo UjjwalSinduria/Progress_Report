@@ -22,28 +22,4 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * **Web/Presentation Tier:-** It basically contains the user facing elements of the application, such as web servers and the interface a/frontend of the application.
     * **Application Tier:-** It contains the backend and application source code which is needed to process data and run the functions.
     * **Data Tier:-** It contains and manages the application data.(Basically where the databases are stored)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    * Presentation Tier
-    * Application Tier
-    * Data Tier
     * ![alt text](image.png)
