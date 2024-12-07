@@ -92,8 +92,21 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         * A Bastion Host(to securely connect to our application servers)
         * ![alt text](image-13.png)
 
+    * Creating an Application server Launch Template
+        * This is basically defines that which type of EC2 instances are going to be used by our backend services.
+        * For this template we need to take some precuations so that it can't be accessible from the outside because its a private subnet, where all our application source code will live.
+        * We are allowing **ICMP–IPv4**, which allows us to ping the application server(application tier) from the web server. 
 
+    * Creating an Auto Scaling Group
+        * We have to attach two private subnets with this security group(private-1, private-2)   
+        * ![alt text](image-14.png)
+    
+    * Creating Application load balancer
+        * We are creating this to route the traffic from web Tier to this application tier
+        * This time we are configuring it as Internal beacuse we are routing traffic from web tier not from the internet
 
+    * After all this now we have 4 running instances: 2 in web tier and 2 in application tier
+        * ![alt text](image-15.png)
 
           
 
