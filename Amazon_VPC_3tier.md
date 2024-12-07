@@ -108,6 +108,13 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * After all this now we have 4 running instances: 2 in web tier and 2 in application tier
         * ![alt text](image-15.png)
 
+    * To check the connection ssh into web tier instance and ping the app tier private ip instance
+        * ![alt text](image-16.png)
+
+    * Creating a Bastion Host
+        * A Bastion host is a dedicated server used to securily access a private network from a public network
+        * 
+
           
 
 
