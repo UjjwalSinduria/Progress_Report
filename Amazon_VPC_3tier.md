@@ -80,7 +80,20 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * Target group should have 2 healthy EC2 instances
         * ![alt text](image-12.png)
 
-    * Here Web Tier Architecture is complete for ujjwal-webApp
+    * Here Web Tier Architecture is completed for ujjwal-webApp
+
+
+- [x] **Tier2: Application Tier(Backend):**
+    * Application Tier is where the source code and core operations like send/retrieve data to/from the web and the Database tier
+    * In this tier we are going to built
+        * Launch Template
+        * Auto Scaling Group
+        * Application Load Balancer
+        * A Bastion Host(to securely connect to our application servers)
+        * ![alt text](image-13.png)
+
+
+
 
           
 
