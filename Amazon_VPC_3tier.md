@@ -75,6 +75,12 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         * ![alt text](image-10.png)
         
     * Everthing is fine till now, out two ec2 instances is launched and running properly
+    * To Check everthing is working properly, take loadbalancer DNS and launch it and see the result
+        * ![alt text](image-11.png)
+    * Target group should have 2 healthy EC2 instances
+        * ![alt text](image-12.png)
+
+    * Here Web Tier Architecture is complete for ujjwal-webApp
 
           
 
