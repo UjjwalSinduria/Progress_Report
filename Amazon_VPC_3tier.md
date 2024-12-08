@@ -129,7 +129,9 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
             * Dynamo Db has two capacity mode:
                 * Provisioned mode
                 * On-demand mode
-                
+            * **In on-demand capacity mode**: In this mode you are billed for each read and write that your application performs.
+                DynamoDb instantly scales your workloads to meet demand. This mode is best for unpredictable amount of traffic. 
+
 
           
 
