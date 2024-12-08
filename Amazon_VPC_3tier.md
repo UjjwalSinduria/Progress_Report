@@ -113,7 +113,16 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
 
     * Creating a Bastion Host
         * A Bastion host is a dedicated server used to securily access a private network from a public network
-        * 
+        * To Protect our application tier from outside access, so we will create an ec2 instance in the webTier outside the ASG.
+            SO this ec2 instance will be our only server that will be used as a gateway to our app servers.
+        * Successfully connect with bastion host 
+            * ![alt text](image-17.png)
+    * now the application tier is created Successfully
+
+- [x] Tier3: **Database tier(Data Storage & retrieval)
+    * **What is DynamoDb:** There are several types of non-relational databases like- documents stores, which stores semi-structured and 
+        unstructured data in the from of files. Key-value databases store unstructured data in the form of Key-value pairs. DynamoDb
+        combines the best of those two non-relational databases to form a great non-realtional service. 
 
           
 
