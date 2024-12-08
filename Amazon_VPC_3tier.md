@@ -120,9 +120,11 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * now the application tier is created Successfully
 
 - [x] Tier3: **Database tier(Data Storage & retrieval)
-    * **What is DynamoDb:** There are several types of non-relational databases like- documents stores, which stores semi-structured and 
+    * **What is DynamoDb:** 
+        * There are several types of non-relational databases like- documents stores, which stores semi-structured and 
         unstructured data in the from of files. Key-value databases store unstructured data in the form of Key-value pairs. DynamoDb
         combines the best of those two non-relational databases to form a great non-realtional service. 
+        * DynamoDb automatically scales up and down to adjust for capacity and maintain performanace. 
 
           
 
