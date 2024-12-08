@@ -125,6 +125,11 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         unstructured data in the from of files. Key-value databases store unstructured data in the form of Key-value pairs. DynamoDb
         combines the best of those two non-relational databases to form a great non-realtional service. 
         * DynamoDb automatically scales up and down to adjust for capacity and maintain performanace. 
+        * DynamoDb charges for reading, writing, and storing data along with any optimal features.
+            * Dynamo Db has two capacity mode:
+                * Provisioned mode
+                * On-demand mode
+                
 
           
 
