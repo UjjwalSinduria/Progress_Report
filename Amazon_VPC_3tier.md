@@ -34,7 +34,7 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * ![alt text](image-1.png)
 
 - [x] **Building the base architecture**
-    * Using VPc console, created the vpc(ujjwa-webApp) 
+    * Using VPc console, created the vpc(ujjwal-webApp) 
     * To increase the availabilty of our application, we are using two AZs, two subnets, four private subnets
     * ![alt text](image-2.png)
     * We need to enable "auto assign public IPV4 address" for Both the public subnets so that its resources can be accessible via internt.
@@ -130,7 +130,15 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
                 * Provisioned mode
                 * On-demand mode
             * **In on-demand capacity mode**: In this mode you are billed for each read and write that your application performs.
-                DynamoDb instantly scales your workloads to meet demand. This mode is best for unpredictable amount of traffic. 
+                DynamoDb instantly scales your workloads to meet demand. This mode is best for unpredictable amount of traffic.
+            * **Provisioned Capacity mode**: In this mode we specify the no of reads and writes per second that you expect our
+                application to require. We have to use autoscalling to tell DynamoDb to automatically adjust adjust table capacity within
+                those limits. This mode is best for for predictable application traffic or run applications whose traffic goes up and down
+                slowly.  
+    - [x] In this tier we are going to build :
+        * **A DataBase Security Group**: That allows outbound and inbound mysql requests to and from our app servers.
+        * **A DataBase subnet group**: basically to ensure that database is created in the proper subnets.
+        * **A RDS Database with mysql**
 
 
           
