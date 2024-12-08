@@ -95,7 +95,7 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
     * Creating an Application server Launch Template
         * This is basically defines that which type of EC2 instances are going to be used by our backend services.
         * For this template we need to take some precuations so that it can't be accessible from the outside because its a private subnet, where all our application source code will live.
-        * We are allowing **ICMP–IPv4**, which allows us to ping the application server(application tier) from the web server. 
+        * We are allowing **ICMP-IPv4**, which allows us to ping the application server(application tier) from the web server. 
 
     * Creating an Auto Scaling Group
         * We have to attach two private subnets with this security group(private-1, private-2)   
@@ -140,6 +140,22 @@ https://medium.com/@aaloktrivedi/building-a-3-tier-web-application-architecture-
         * **A DataBase subnet group**: basically to ensure that database is created in the proper subnets.
         * **A RDS Database with mysql**
 
+        * Creating a security group for db:
+            * First give inbound access of mysql to ujjwal-appServer-sg and same for outbound
+                * ![alt text](image-18.png)
+                * ![alt text](image-19.png)
+            * Give inbound access of ujjwal-appServer-sg to our ujjwal-db-sg and same goes for outbound also
+                * ![alt text](image-20.png)
+                * ![alt text](image-21.png)
+        * Creating a database subnet group 
+            * ![alt text](image-22.png)
+        * Creating a database called ujjwal-webApp-db
+            * We are connecting out subnet group with it and does not assiging any public ip address to our db.
+            * ![alt text](image-23.png)
+            
+        **Now the 3 tier architecture is compelete but i am getting some error in last step**
+        ![alt text](image-24.png) 
+        
 
           
 
