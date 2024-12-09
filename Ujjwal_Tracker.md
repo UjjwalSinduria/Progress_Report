@@ -101,9 +101,14 @@
 - [x] **Task27**: VPC Three tier architecture
     * Internet Gateway,Virtual Private Gateway, Route Tables, Subnets
 
-### Thursday 05-12-2024
-- [x] **Task27**: Completed my amazon vpc three tier architecture (but stuck in connecting db through bastion host beacuse 
-                    I am not able to install mysql on my bastion host server.)
+### Friday 06-12-2024
+- [x] **Task27**: Completed my amazon vpc three tier architecture (but stuck in connecting db through bastion host beacuse, iam not able to install mysql on my bastion host server.)
+
+
+### Monday 09-12-2024
+- [x] Created a login and signUp page for GEN-AI using React-vite
+- [x] Integrated Alerts with the help of cloudScape  
+
 
 
  
