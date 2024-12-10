@@ -24,5 +24,5 @@
         components have necessary permissions to function securily.
 
 - [x] <ins>**key components of AWS cognito are:**</ins>
-    *   <ins>**key components of AWS cognito are:**</ins>
+    *   <ins>**UserPool**</ins>
     
