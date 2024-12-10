@@ -6,7 +6,7 @@
         system.
 
 - [x] <ins>**Security Measures provided by cognito**</ins>
-    *   UserData is encrypted and Transmitted securily over the internet using SSL/TSL protocol'
+    *   UserData is encrypted and Transmitted securily over the internet using SSL/TSL protocol.
         *   **SSL**: Secure Socket Layer
         *   **TSL**: Transport Security Layer
     *   MFA's(Multi-factor authentications)
@@ -21,5 +21,8 @@
         *   Sign Up
         *   MFA
     *   IAM is used for setting and managing permissions for various AWS Resources. Basically its ensuring your application backend 
-        components have necessary permissions to function securily
+        components have necessary permissions to function securily.
+
+- [x] <ins>**key components of AWS cognito are:**</ins>
+    *   <ins>**key components of AWS cognito are:**</ins>
     
