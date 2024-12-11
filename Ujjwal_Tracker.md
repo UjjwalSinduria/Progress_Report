@@ -111,10 +111,12 @@
 
 ### Tuesday 10-12-2024
 - [x] Fixed some bugs while doing the login in the login page
-- [x] Read in depth about the AWS Cognito service.
+- [x] Read in depth about the AWS Cognito service. Applied AWS Cognito to genAI Login and signUp page
 
 
- 
+### Wednesday 11-12-2024
+- [x] 
+
 
             
             
