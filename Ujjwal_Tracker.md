@@ -115,7 +115,7 @@
 
 
 ### Wednesday 11-12-2024
-- [x] 
+- [x] Implemented login and logout functionality with automatic email confirmation with confirmation code
 
 
             
