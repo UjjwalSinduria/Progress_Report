@@ -118,8 +118,10 @@
 - [x] Implemented login and logout functionality with automatic email confirmation with confirmation code
 
 ### Thursday 12-12-2024
+- [x] Enhanced the login logout functionality with more secure way. Try to build forgot pass and reset password(But getting some errors)
 
-            
+### Saturday 14-12-2024
+- [x] Implemented the forgot and reset password functionality with new dropdown menu for user. Created the beautiful footer for our  application
             
 
 
