@@ -1,0 +1,77 @@
+.\source.bat
+# Complete project setup for launching an EC2 instance with a Security Group using AWS CDK
+
+## Step 1: Install AWS CDK and Setup Environment
+# Install AWS CDK globally
+# Command: npm install -g aws-cdk
+
+# Create a new project directory
+# Command: mkdir ec2-instance-project
+# Command: cd ec2-instance-project
+
+# Initialize a CDK project with Python as the language
+# Command: cdk init app --language python
+
+# Activate Python virtual environment
+# Command: python -m venv .venv
+# Command (Linux/Mac): source .venv/bin/activate
+# Command (Windows): .venv\Scripts\activate
+
+# Install required Python dependencies
+# Command: pip install -r requirements.txt
+
+## Step 2: Create the Stack in `ec2_instance_project_stack.py`
+from aws_cdk import (
+    Stack,
+    aws_ec2 as ec2,
+)
+from constructs import Construct
+
+class Ec2InstanceWithSecurityGroupStack(Stack):
+
+    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+        super().__init__(scope, construct_id, **kwargs)
+
+        # Use the default VPC
+        vpc = ec2.Vpc.from_lookup(self, "DefaultVPC", is_default=True)
+
+        # Define a Security Group for the EC2 instance
+        security_group = ec2.SecurityGroup(
+            self, "MySecurityGroup",
+            vpc=vpc,
+            description="Allow SSH and HTTP access",
+            allow_all_outbound=True  # Allows outbound traffic by default
+        )
+
+        # Add ingress rules (inbound rules)
+        security_group.add_ingress_rule(
+            ec2.Peer.any_ipv4(), ec2.Port.tcp(22), "Allow SSH access"
+        )
+
+        security_group.add_ingress_rule(
+            ec2.Peer.any_ipv4(), ec2.Port.tcp(80), "Allow HTTP access"
+        )
+
+        # Launch an EC2 instance
+        ec2_instance = ec2.Instance(
+            self, "MyInstance",
+            instance_type=ec2.InstanceType("t2.micro"),
+            machine_image=ec2.MachineImage.latest_amazon_linux(),
+            vpc=vpc,
+            security_group=security_group,  # Associate the Security Group
+            key_name="my-key-pair"  # Replace with your key pair name
+        )
+
+## Step 3: Synthesize the CloudFormation Template
+# Command: cdk synth
+
+## Step 4: Deploy the Stack
+# Command: cdk deploy
+
+## Step 5: Verify the Resources in AWS Console
+# - Check the default VPC, Security Group, and EC2 instance created in the AWS Management Console.
+
+## Notes:
+# - Replace `my-key-pair` with the name of your existing key pair in AWS.
+# - Ensure AWS CLI is configured with appropriate credentials using `aws configure`.
+

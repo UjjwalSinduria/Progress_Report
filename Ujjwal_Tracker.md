@@ -125,6 +125,8 @@
             
 
 ### Monday 16-12-2024
-
+- [x] Launched ec2 instance with its new security group with the help of aws cdk.
+- [x] Created contact-us page, ccoe page, and ehanced multiple features and also implemented welcome page
+could have used context hook in react or could have done the callback prop to save email, userId instead of local storage
 
 
