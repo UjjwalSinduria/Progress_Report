@@ -124,5 +124,7 @@
 - [x] Implemented the forgot and reset password functionality with new dropdown menu for user. Created the beautiful footer for our  application
             
 
+### Monday 16-12-2024
+
 
 
