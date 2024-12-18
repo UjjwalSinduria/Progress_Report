@@ -130,3 +130,11 @@
 could have used context hook in react or could have done the callback prop to save email, userId instead of local storage
 
 
+### Tuesday 17-12-2024
+- [x] Created s3 bucket pages
+- [x] Implemented search functionality among all the pages seemlessly
+- [x] Implemented Pagination to showing only 10 buckets at a page and add seemore pages and could navigate
+prev page functionality
+
+
+### Wednesday 18-12-2024
