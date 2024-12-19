@@ -145,3 +145,7 @@ but folder are not)
 
 
 ### Thursday 19-12-2024
+- [x] created a functionality where i am getting 10 buckets at a time from the backend and when
+we click load more button then again 10 buckets will be load.
+- [x] same root data of bucket will be shown , when we hit the folder then new api call happen and new 
+data for child components will be load
