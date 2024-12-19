@@ -131,10 +131,17 @@ could have used context hook in react or could have done the callback prop to sa
 
 
 ### Tuesday 17-12-2024
-- [x] Created s3 bucket pages
+- [x] Created s3 bucket list pages
 - [x] Implemented search functionality among all the pages seemlessly
 - [x] Implemented Pagination to showing only 10 buckets at a page and add seemore pages and could navigate
 prev page functionality
 
 
 ### Wednesday 18-12-2024
+- [x] Created a particular bucket page,
+    when you click on a bucket you can see its files and folders seemlessly.
+- [x] Try to built check and uncheck button also but some bugs are there(Files are getting selected properly
+but folder are not)
+
+
+### Thursday 19-12-2024
