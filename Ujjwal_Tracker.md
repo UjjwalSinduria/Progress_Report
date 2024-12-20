@@ -149,3 +149,8 @@ but folder are not)
 we click load more button then again 10 buckets will be load.
 - [x] same root data of bucket will be shown , when we hit the folder then new api call happen and new 
 data for child components will be load
+
+
+### Friday 20-12-2024
+- [x] Created lambda funcution with team to upload files and folders
+- [x] Fixed some bugs. like api is getting called multiple time.
