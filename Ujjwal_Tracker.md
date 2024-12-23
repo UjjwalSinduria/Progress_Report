@@ -165,3 +165,4 @@ page.
 through bucket name user can search the buckets
 - [x] Added all the files and the folders of the bucket into the table so that 
 the UI would be clean
+- [x] one bug was there when folder is empty or when bucket is empty it was not handling the 404 error properly. Bug solved successfully.
