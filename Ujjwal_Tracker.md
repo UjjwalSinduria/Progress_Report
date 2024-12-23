@@ -154,3 +154,14 @@ data for child components will be load
 ### Friday 20-12-2024
 - [x] Created lambda funcution with team to upload files and folders
 - [x] Fixed some bugs. like api is getting called multiple time.
+
+
+### Monday 23-12-2024
+- [x] Read about useRef hook
+- [x] Implemented create folder and upload functionality in the react 
+- [x] Implemented Page Management, so that user can directly jump to their descired
+page.
+- [x] Implemented Search functionality in the lambdafunction as well as in the react also, 
+through bucket name user can search the buckets
+- [x] Added all the files and the folders of the bucket into the table so that 
+the UI would be clean
