@@ -166,3 +166,11 @@ through bucket name user can search the buckets
 - [x] Added all the files and the folders of the bucket into the table so that 
 the UI would be clean
 - [x] one bug was there when folder is empty or when bucket is empty it was not handling the 404 error properly. Bug solved successfully.
+
+
+### Tuesday 24-12-2024
+- [x] Implemented search functionality through out the bucket and If we are in any folder 
+, search starts only from that point not from the whole bucket
+- [x] created a beautiful ui for search and added filters also 
+- [x] added one filter for file and folder, if we select file then another filter gets activated in that filter we 
+have to select type of file, basically like .json, .xml, .csv etc etc.
