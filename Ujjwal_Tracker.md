@@ -174,3 +174,14 @@ the UI would be clean
 - [x] created a beautiful ui for search and added filters also 
 - [x] added one filter for file and folder, if we select file then another filter gets activated in that filter we 
 have to select type of file, basically like .json, .xml, .csv etc etc.
+
+### Thursday 26-12-2024
+- [x] We have tried to write some lambda functions to get Pagination for the bucket's objects.
+- [x] I leart about the how can i do Pagination for the objects in the frontend.
+- [x] Pagination got done but cache is something which was taking lot of time.
+
+### Friday 27-12-2024
+- [x] Implemented Pagination on the bucket objects in the frontend with the cache applied for the fetched objects.
+- [x] Implemented Pagination on the search functionality also
+- [x] Faced a lot of difficulity while applying the Pagination for the bucket objects as compared to applying
+Pagination on buckets
