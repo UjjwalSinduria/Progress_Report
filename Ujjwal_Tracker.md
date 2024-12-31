@@ -185,3 +185,6 @@ have to select type of file, basically like .json, .xml, .csv etc etc.
 - [x] Implemented Pagination on the search functionality also
 - [x] Faced a lot of difficulity while applying the Pagination for the bucket objects as compared to applying
 Pagination on buckets
+
+### Monday 30-12-2024
+- [x] 
