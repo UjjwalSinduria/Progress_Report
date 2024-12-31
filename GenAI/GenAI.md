@@ -25,8 +25,8 @@
         *   **GPT(Generative Pre-Trained Transformer)**:
             *   Developed by OpenAI, GPT is unidirectional transformer model focused on the text generation and understanding.
             * **How its Works**
-            *   PreTrained on large datasets(unsupervised learning)
-            *   Fine-tuned for specific tasks(supervised learning)
+                *   PreTrained on large datasets(unsupervised learning)
+                *   Fine-tuned for specific tasks(supervised learning)
         
 
 
