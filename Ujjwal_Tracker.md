@@ -187,4 +187,15 @@ have to select type of file, basically like .json, .xml, .csv etc etc.
 Pagination on buckets
 
 ### Monday 30-12-2024
-- [x] 
+- [x] Implemented and improved the pagination for the bucket as well as bucket objects.
+- [x] With the help of backend, now we are able to see the total count of the bucket.
+- [x] And with the help of that bucket, i am able to make the pagination pages dynamic
+
+### Tuesday 31-12-2024
+- [x] Tried to solve the search bugs, but did it only for the folders only.
+- [x] Learn some time from the Cloud Developer Associate Course.
+- [x] Got some foundationaly knowledge about the AWS Generative AI.
+
+### Thursday 02-01-2025
+
+
