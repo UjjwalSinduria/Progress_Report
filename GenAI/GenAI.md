@@ -12,10 +12,6 @@
     *   Transformers are the class of machine learning models designed for sequence-to-sequence tasks, such as text, audio, and more. They have revolutionized the field of Natural Language processing(NLP) and now begin extended into other domains like computer vision and Generative AI
     *   **Transformer Architecture**: Transformers rely on a mechanism called **self-attention** to process input sequences in parallel
     rather than sequentially (as in RNNs).
-    *   **RNN(Recurrent Neural Network)**: 
-        *   Old neural networks input and outputs are treated independently, but this is not in the case of RNN.
-        RNN is advanced neural network which fed input as its prev output(Means the output of one step fed as an input to the next, allowing them to retian information from previous inputs)
-        *   This design Makes RNN well suited for tasks where context from earlier step is essential, such as predicting the next word in a sentence.   
     *   **Core Component on transformer**:
         *   **Encoder**: Processes input sequences(eg: word in a sentence).
         *   **Decorder**: Generates the output sequences (e.g., translations, answers).
