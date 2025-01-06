@@ -1,0 +1,37 @@
+from aws_cdk import (
+    Stack,
+    aws_s3 as s3,
+    aws_lambda as _lambda,
+    aws_s3_notifications as s3_notifications,
+    RemovalPolicy
+)
+from constructs import Construct
+
+class CdkS3BucketTaskStack(Stack):
+
+    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+        super().__init__(scope, construct_id, **kwargs)
+
+        bucket = s3.Bucket(
+            self,
+            'MyS3Bucket',
+            bucket_name='ujjwal-sample-s3-test-bucket',
+            versioned=True,
+            removal_policy=RemovalPolicy.DESTROY,
+            auto_delete_objects=True
+        )
+        
+        lambda_function = _lambda.Function(
+            self,
+            'ujjwal-test-s3-function',
+            runtime=_lambda.Runtime.PYTHON_3_10,
+            handler="lambda_hanlder.main",
+            code=_lambda.Code.from_asset("lambda"),
+        )
+        
+        bucket.add_event_notification(
+            s3.EventType.OBJECT_CREATED,
+            s3_notifications.LambdaDestination(lambda_function),
+        )
+        
+        bucket.grant_read(lambda_function)

@@ -207,4 +207,4 @@ search objects also.
 - [x] I have continued with my cloud Associate Developer course.
 
 ### Monday 06-01-2025
-- [x]
+- [x] Created an AWS CDK for launching a s3 bucket and a lambda function which will get trigger when we put an object to it.
