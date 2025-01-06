@@ -197,5 +197,14 @@ Pagination on buckets
 - [x] Got some foundationaly knowledge about the AWS Generative AI.
 
 ### Thursday 02-01-2025
+- [x] We hava tried to implement search functionality in lambda function but got some errors and bugs
+     .We got our search functionality working for folders is fine but it is not working for files.
+- [x] In front end i have made some changes. I have add one button to redirect us to the bucket pages.
 
+### Friday 03-01-2025
+- [x] Lambda function for search functionality was working smoothly. In frontend Pagination is getting applied on that 
+search objects also.
+- [x] I have continued with my cloud Associate Developer course.
 
+### Monday 06-01-2025
+- [x]
